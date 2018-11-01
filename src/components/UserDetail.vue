@@ -4,30 +4,18 @@
         <p>Many Details</p>
         <p>User Name: {{reverseName()}}</p>
         <button @click="resetName">Reset Name</button>
+        <button @click="resetFunction()">Reset Name (Callback)</button>
     </div>
 </template>
 
 <script>
     export default {
         props: {
-            connectionName: [String, Array],
             userName: {
                 type: String,
                 required: true,
             },
-            maxConnectionCount: {
-                type: Number,
-                default: 100
-            },
-            config: {
-                type: Object,
-                default() {
-                    return {
-                        serverId: 0,
-                        serverName: "100s-54hd"
-                    }
-                }
-            }
+            resetFunction: Function
         },
         methods: {
             reverseName() {
