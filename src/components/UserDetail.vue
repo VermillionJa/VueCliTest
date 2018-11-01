@@ -8,9 +8,26 @@
 
 <script>
     export default {
-        props: [
-            "userName"
-        ],
+        props: {
+            connectionName: [String, Array],
+            userName: {
+                type: String,
+                required: true,
+            },
+            maxConnectionCount: {
+                type: Number,
+                default: 100
+            },
+            config: {
+                type: Object,
+                default() {
+                    return {
+                        serverId: 0,
+                        serverName: "100s-54hd"
+                    }
+                }
+            }
+        },
         methods: {
             reverseName() {
                 return this.userName.split("").reverse().join("");
